@@ -11,13 +11,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'AoC',
       theme: ThemeData(
         // This is the theme of your application.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Age Of Claritas'),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -32,40 +33,75 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  int currentPageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        title: Text(widget.title, style: const TextStyle(color: Colors.white)),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
+      bottomNavigationBar: NavigationBar(
+        onDestinationSelected: (int index) {
+          setState(() {
+            currentPageIndex = index;
+          });
+        },
+        indicatorColor: Colors.indigoAccent,
+        selectedIndex: currentPageIndex,
+        destinations: const <Widget>[
+          NavigationDestination(
+              selectedIcon: Icon(Icons.home, color: Colors.white),
+              icon: Icon(Icons.home),
+              label: 'Home'),
+          NavigationDestination(
+              selectedIcon: Icon(Icons.storefront, color: Colors.white),
+              icon: Icon(Icons.storefront),
+              label: 'Store'),
+          NavigationDestination(
+              selectedIcon: Icon(Icons.face, color: Colors.white),
+              icon: Icon(Icons.face),
+              label: 'Character'),
+          NavigationDestination(
+              selectedIcon: Icon(Icons.book, color: Colors.white),
+              icon: Icon(Icons.book),
+              label: 'Rulebook'),
+          NavigationDestination(
+              selectedIcon: Icon(Icons.settings, color: Colors.white),
+              icon: Icon(Icons.settings),
+              label: 'Profile')
+        ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      body: <Widget>[
+        // Home Page
+        const Card(
+            shadowColor: Colors.transparent,
+            margin: EdgeInsets.all(8.0),
+            child: SizedBox.expand(child: Center(child: Text('Home Page')))),
+        // Store Page
+        const Card(
+            shadowColor: Colors.transparent,
+            margin: EdgeInsets.all(8.0),
+            child: SizedBox.expand(child: Center(child: Text('Store Page')))),
+        // Character Management Page
+        const Card(
+            shadowColor: Colors.transparent,
+            margin: EdgeInsets.all(8.0),
+            child:
+                SizedBox.expand(child: Center(child: Text('Character Page')))),
+        // Rulebook and Maps Page
+        const Card(
+            shadowColor: Colors.transparent,
+            margin: EdgeInsets.all(8.0),
+            child:
+                SizedBox.expand(child: Center(child: Text('Rulebook Page')))),
+        // Settings and Profile Page
+        const Card(
+            shadowColor: Colors.transparent,
+            margin: EdgeInsets.all(8.0),
+            child: SizedBox.expand(child: Center(child: Text('Profile Page')))),
+      ][currentPageIndex],
     );
   }
 }
