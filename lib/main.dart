@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
           NavigationDestination(
               selectedIcon: Icon(Icons.settings, color: Colors.white),
               icon: Icon(Icons.settings),
-              label: 'Profile')
+              label: 'Settings')
         ],
       ),
     );

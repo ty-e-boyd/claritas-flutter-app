@@ -9,6 +9,8 @@ class CharacterPage extends StatelessWidget {
           title: const Text('My Character'),
         ),
         body: const Card(
+            shape:
+                RoundedRectangleBorder(side: BorderSide(color: Colors.black)),
             shadowColor: Colors.transparent,
             margin: EdgeInsets.all(8.0),
             child:

@@ -9,6 +9,8 @@ class SettingsPage extends StatelessWidget {
           title: const Text('Settings'),
         ),
         body: const Card(
+            shape:
+                RoundedRectangleBorder(side: BorderSide(color: Colors.black)),
             shadowColor: Colors.transparent,
             margin: EdgeInsets.all(8.0),
             child:

@@ -9,6 +9,8 @@ class RulebookPage extends StatelessWidget {
           title: const Text('Rulebook'),
         ),
         body: const Card(
+            shape:
+                RoundedRectangleBorder(side: BorderSide(color: Colors.black)),
             shadowColor: Colors.transparent,
             margin: EdgeInsets.all(8.0),
             child:
