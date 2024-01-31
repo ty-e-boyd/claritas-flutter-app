@@ -1,3 +1,8 @@
+import 'package:aoc_mobile/pages/character_page.dart';
+import 'package:aoc_mobile/pages/home_page.dart';
+import 'package:aoc_mobile/pages/rulebook_page.dart';
+import 'package:aoc_mobile/pages/settings_page.dart';
+import 'package:aoc_mobile/pages/store_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -34,6 +39,13 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int currentPageIndex = 0;
+  final screens = [
+    const HomePage(),
+    const StorePage(),
+    const CharacterPage(),
+    const RulebookPage(),
+    const SettingsPage()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.primary,
         title: Text(widget.title, style: const TextStyle(color: Colors.white)),
       ),
+      body: screens[currentPageIndex],
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
           setState(() {
@@ -73,35 +86,6 @@ class _MyHomePageState extends State<MyHomePage> {
               label: 'Profile')
         ],
       ),
-      body: <Widget>[
-        // Home Page
-        const Card(
-            shadowColor: Colors.transparent,
-            margin: EdgeInsets.all(8.0),
-            child: SizedBox.expand(child: Center(child: Text('Home Page')))),
-        // Store Page
-        const Card(
-            shadowColor: Colors.transparent,
-            margin: EdgeInsets.all(8.0),
-            child: SizedBox.expand(child: Center(child: Text('Store Page')))),
-        // Character Management Page
-        const Card(
-            shadowColor: Colors.transparent,
-            margin: EdgeInsets.all(8.0),
-            child:
-                SizedBox.expand(child: Center(child: Text('Character Page')))),
-        // Rulebook and Maps Page
-        const Card(
-            shadowColor: Colors.transparent,
-            margin: EdgeInsets.all(8.0),
-            child:
-                SizedBox.expand(child: Center(child: Text('Rulebook Page')))),
-        // Settings and Profile Page
-        const Card(
-            shadowColor: Colors.transparent,
-            margin: EdgeInsets.all(8.0),
-            child: SizedBox.expand(child: Center(child: Text('Profile Page')))),
-      ][currentPageIndex],
     );
   }
 }
