@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "119024234716",
+    "project_id": "aoc-fr-ebe73",
+    "storage_bucket": "aoc-fr-ebe73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:119024234716:android:d9e624bec091109ccc8419",
+        "android_client_info": {
+          "package_name": "com.example.aoc_mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6WBr3OwUZTfEd_jJr2YaEnwYKDw1dEWw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
