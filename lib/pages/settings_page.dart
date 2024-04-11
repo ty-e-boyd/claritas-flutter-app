@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
 
+  // TODO [ ] ---> Login and Logout
+
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
